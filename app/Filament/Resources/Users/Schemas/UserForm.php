@@ -23,8 +23,9 @@ class UserForm
                     ->required()
                     ->maxLength(100),
                 TextInput::make('password')
+                    ->password()
+                    ->required()
                     ->nullable()
-                    ->minLength(8)
                     ->dehydrateStateUsing(fn ($state) => filled($state) ? bcrypt($state) : null),
             ]);
     }
